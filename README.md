@@ -18,17 +18,19 @@
 **Installation using git methodology:**
 
 ```shell
-  #Clone repositories
+  # Clone repositories
   git clone https://github.com/carlbuchmann/AVD-US-PROJECT-01.git
   git clone https://github.com/aristanetworks/ansible-avd.git
+  # Copy Makefile to folder, this will be used to start AVD Team container
   cp ansible-avd/development/Makefile Makefile
+  # Change to PR #1000 branch
   cd ansible-avd
   gh pr checkout 1000
+  # Start AVD Team container
   cd ..
-  # start container
   make run
+  # Run contain-lab-build test Ansible playbook
   cd AVD-US-PROJECT-1
-  # run build playbook
   make container-lab-build
 ```
 
