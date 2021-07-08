@@ -1,0 +1,33 @@
+---
+
+# DC1 L3LS Fabric Values
+
+# Fabric Name
+fabric_name: DC1_FABRIC
+
+# Set node types for fabric
+node_type_keys:
+  spine:
+    type: spine
+  leaf:
+    type: leaf
+    connected_endpoints: true
+
+# bgp peer groups passwords
+bgp_peer_groups:
+  IPv4_UNDERLAY_PEERS:
+    password: "AQQvKeimxJu+uGQ/yYvv9w=="
+
+# Update management interface
+mgmt_interface: Management0
+
+#### Override for vEOS Lab Caveats ####
+
+# Update p2p mtu 9000 -> 1500
+p2p_uplinks_mtu: 1500
+
+# Adjust default bfd values
+bfd_multihop:
+  interval: 1200
+  min_rx: 1200
+  multiplier: 3

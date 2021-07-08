@@ -1,0 +1,298 @@
+ansible_connection: httpapi
+ansible_network_os: eos
+ansible_user: admin
+ansible_ssh_pass: arista123
+ansible_become: true
+ansible_become_method: enable
+ansible_httpapi_use_ssl: true
+ansible_httpapi_validate_certs: false
+validation_mode_loose: true
+local_users:
+  admin:
+    privilege: 15
+    role: network-admin
+    sha512_password: $6$Df86J4/SFMDE3/1K$Hef4KstdoxNDaami37cBquTWOTplC.miMPjXVgQxMe92.e5wxlnXOLlebgPj8Fz1KO0za/RCO7ZIs4Q6Eiq1g1
+  cvpadmin:
+    privilege: 15
+    role: network-admin
+    sha512_password: $6$rZKcbIZ7iWGAWTUM$TCgDn1KcavS0s.OV8lacMTUkxTByfzcGlFlYUWroxYuU7M/9bIodhRO7nXGzMweUxvbk8mJmQl8Bh44cRktUj.
+mgmt_gateway: 192.168.200.1
+name_servers:
+- 192.168.200.5
+- 8.8.8.8
+dns_domain: avd-lab.local
+ntp_servers:
+- 0.north-america.pool.ntp.org
+- 1.north-america.pool.ntp.org
+fabric_name: DC1_FABRIC
+node_type_keys:
+  spine:
+    type: spine
+  leaf:
+    type: leaf
+    connected_endpoints: true
+bgp_peer_groups:
+  IPv4_UNDERLAY_PEERS:
+    password: AQQvKeimxJu+uGQ/yYvv9w==
+mgmt_interface: Management0
+p2p_uplinks_mtu: 1500
+bfd_multihop:
+  interval: 1200
+  min_rx: 1200
+  multiplier: 3
+type: spine
+spine:
+  defaults:
+    platform: 7050SX3
+    bgp_as: 65001
+    uplink_ipv4_pool: 10.255.255.0/24
+    loopback_ipv4_pool: 192.168.254.0/24
+    bgp_defaults:
+    - no bgp default ipv4-unicast
+    - distance bgp 20 200 200
+    max_uplink_switches: 3
+  nodes:
+    DC1-SPINE1:
+      id: 1
+      mgmt_ip: 192.168.200.101/24
+      uplink_interfaces:
+      - Ethernet11
+      - Ethernet12
+      - Ethernet13
+      uplink_switches:
+      - DC1-SPINE2
+      - DC1-SPINE3
+      - DC1-SPINE4
+      uplink_switch_interfaces:
+      - Ethernet11
+      - Ethernet11
+      - Ethernet11
+    DC1-SPINE2:
+      id: 2
+      mgmt_ip: 192.168.200.102/24
+      uplink_interfaces:
+      - Ethernet12
+      - Ethernet13
+      uplink_switches:
+      - DC1-SPINE3
+      - DC1-SPINE4
+      uplink_switch_interfaces:
+      - Ethernet12
+      - Ethernet12
+    DC1-SPINE3:
+      id: 3
+      mgmt_ip: 192.168.200.103/24
+      uplink_interfaces:
+      - Ethernet13
+      uplink_switches:
+      - DC1-SPINE4
+      uplink_switch_interfaces:
+      - Ethernet13
+    DC1-SPINE4:
+      id: 4
+      mgmt_ip: 192.168.200.104/24
+inventory_file: /projects/AVD-US-PROJECT-1/inventories/container-lab/inventory.yml
+inventory_dir: /projects/AVD-US-PROJECT-1/inventories/container-lab
+ansible_host: 192.168.200.103
+inventory_hostname: DC1-SPINE3
+inventory_hostname_short: DC1-SPINE3
+group_names:
+- AVD_LAB
+- DC1_FABRIC
+- DC1_SPINES
+ansible_facts:
+  switch:
+    type: spine
+    node_type_key: spine
+    connected_endpoints: false
+    default_evpn_role: none
+    mlag_support: false
+    network_services_l2: false
+    network_services_l3: false
+    underlay_router: true
+    uplink_type: p2p
+    vtep: false
+    ip_addressing:
+      router_id: designs/l3ls-evpn/ip-addressing/router-id.j2
+      mlag_ip_primary: designs/l3ls-evpn/ip-addressing/mlag-ip-primary.j2
+      mlag_ip_secondary: designs/l3ls-evpn/ip-addressing/mlag-ip-secondary.j2
+      mlag_l3_ip_primary: designs/l3ls-evpn/ip-addressing/mlag-l3-ip-primary.j2
+      mlag_l3_ip_secondary: designs/l3ls-evpn/ip-addressing/mlag-l3-ip-secondary.j2
+      p2p_uplinks_ip: designs/l3ls-evpn/ip-addressing/p2p-uplinks-ip.j2
+      p2p_uplinks_peer_ip: designs/l3ls-evpn/ip-addressing/p2p-uplinks-peer-ip.j2
+      vtep_ip_mlag: designs/l3ls-evpn/ip-addressing/vtep-ip-mlag.j2
+      vtep_ip: designs/l3ls-evpn/ip-addressing/vtep-ip.j2
+    underlay_routing_protocol: ebgp
+    overlay_routing_protocol: ebgp
+    id: 3
+    mgmt_ip: 192.168.200.103/24
+    platform: 7050SX3
+    platform_settings:
+      platforms:
+      - default
+      reload_delay:
+        mlag: 300
+        non_mlag: 330
+      feature_support:
+        queue_monitor_length_notify: false
+    spanning_tree_mode: none
+    max_uplink_switches: 3
+    max_parallel_uplinks: 1
+    uplink_switches:
+    - DC1-SPINE4
+    uplink_switch_interfaces:
+    - Ethernet13
+    uplink_interfaces:
+    - Ethernet13
+    loopback_ipv4_pool: 192.168.254.0/24
+    loopback_ipv4_offset: 0
+    uplink_ipv4_pool: 10.255.255.0/24
+    router_id: 192.168.254.3
+    bgp_as: 65001
+    bgp_defaults:
+    - no bgp default ipv4-unicast
+    - distance bgp 20 200 200
+    evpn_role: none
+    mlag: false
+    tenants: {}
+    vlans: []
+  topology:
+    links:
+      Ethernet13:
+        peer: DC1-SPINE4
+        peer_interface: Ethernet13
+        peer_type: spine
+        peer_bgp_as: 65001
+        type: underlay_p2p
+        ip_address: 10.255.255.13
+        peer_ip_address: 10.255.255.12
+    peers:
+    - DC1-SPINE4
+    vlans: []
+switch:
+  type: spine
+  node_type_key: spine
+  connected_endpoints: false
+  default_evpn_role: none
+  mlag_support: false
+  network_services_l2: false
+  network_services_l3: false
+  underlay_router: true
+  uplink_type: p2p
+  vtep: false
+  ip_addressing:
+    router_id: designs/l3ls-evpn/ip-addressing/router-id.j2
+    mlag_ip_primary: designs/l3ls-evpn/ip-addressing/mlag-ip-primary.j2
+    mlag_ip_secondary: designs/l3ls-evpn/ip-addressing/mlag-ip-secondary.j2
+    mlag_l3_ip_primary: designs/l3ls-evpn/ip-addressing/mlag-l3-ip-primary.j2
+    mlag_l3_ip_secondary: designs/l3ls-evpn/ip-addressing/mlag-l3-ip-secondary.j2
+    p2p_uplinks_ip: designs/l3ls-evpn/ip-addressing/p2p-uplinks-ip.j2
+    p2p_uplinks_peer_ip: designs/l3ls-evpn/ip-addressing/p2p-uplinks-peer-ip.j2
+    vtep_ip_mlag: designs/l3ls-evpn/ip-addressing/vtep-ip-mlag.j2
+    vtep_ip: designs/l3ls-evpn/ip-addressing/vtep-ip.j2
+  underlay_routing_protocol: ebgp
+  overlay_routing_protocol: ebgp
+  id: 3
+  mgmt_ip: 192.168.200.103/24
+  platform: 7050SX3
+  platform_settings:
+    platforms:
+    - default
+    reload_delay:
+      mlag: 300
+      non_mlag: 330
+    feature_support:
+      queue_monitor_length_notify: false
+  spanning_tree_mode: none
+  max_uplink_switches: 3
+  max_parallel_uplinks: 1
+  uplink_switches:
+  - DC1-SPINE4
+  uplink_switch_interfaces:
+  - Ethernet13
+  uplink_interfaces:
+  - Ethernet13
+  loopback_ipv4_pool: 192.168.254.0/24
+  loopback_ipv4_offset: 0
+  uplink_ipv4_pool: 10.255.255.0/24
+  router_id: 192.168.254.3
+  bgp_as: 65001
+  bgp_defaults:
+  - no bgp default ipv4-unicast
+  - distance bgp 20 200 200
+  evpn_role: none
+  mlag: false
+  tenants: {}
+  vlans: []
+topology:
+  links:
+    Ethernet13:
+      peer: DC1-SPINE4
+      peer_interface: Ethernet13
+      peer_type: spine
+      peer_bgp_as: 65001
+      type: underlay_p2p
+      ip_address: 10.255.255.13
+      peer_ip_address: 10.255.255.12
+  peers:
+  - DC1-SPINE4
+  vlans: []
+playbook_dir: /projects/AVD-US-PROJECT-1/playbooks
+ansible_playbook_python: /usr/local/bin/python
+ansible_config_file: /projects/AVD-US-PROJECT-1/ansible.cfg
+groups:
+  all:
+  - DC1-SPINE1
+  - DC1-SPINE2
+  - DC1-SPINE3
+  - DC1-SPINE4
+  - DC1-LEAF1
+  - DC1-LEAF2
+  - DC1-LEAF3
+  - DC1-LEAF4
+  ungrouped: []
+  AVD_LAB:
+  - DC1-SPINE1
+  - DC1-SPINE2
+  - DC1-SPINE3
+  - DC1-SPINE4
+  - DC1-LEAF1
+  - DC1-LEAF2
+  - DC1-LEAF3
+  - DC1-LEAF4
+  DC1_FABRIC:
+  - DC1-SPINE1
+  - DC1-SPINE2
+  - DC1-SPINE3
+  - DC1-SPINE4
+  - DC1-LEAF1
+  - DC1-LEAF2
+  - DC1-LEAF3
+  - DC1-LEAF4
+  DC1_SPINES:
+  - DC1-SPINE1
+  - DC1-SPINE2
+  - DC1-SPINE3
+  - DC1-SPINE4
+  DC1_LEAFS:
+  - DC1-LEAF1
+  - DC1-LEAF2
+  - DC1-LEAF3
+  - DC1-LEAF4
+omit: __omit_place_holder__c543b0fbe207ec835ccbe3dd70ee1e2cd35f87b5
+ansible_version:
+  string: 2.10.11
+  full: 2.10.11
+  major: 2
+  minor: 10
+  revision: 11
+ansible_check_mode: false
+ansible_diff_mode: true
+ansible_forks: 15
+ansible_inventory_sources:
+- /projects/AVD-US-PROJECT-1/inventories/container-lab/inventory.yml
+ansible_skip_tags: []
+ansible_run_tags:
+- build
+- debug
+ansible_verbosity: 0

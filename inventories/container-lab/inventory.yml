@@ -1,0 +1,40 @@
+all:
+  children:
+    AVD_LAB:
+      children:
+
+# DC1 Fabric - Container-lab
+        DC1_FABRIC:
+          children:
+            DC1_SPINES:
+              hosts:
+                DC1-SPINE1:
+                  ansible_host: 192.168.200.101
+                DC1-SPINE2:
+                  ansible_host: 192.168.200.102
+                DC1-SPINE3:
+                  ansible_host: 192.168.200.103
+                DC1-SPINE4:
+                  ansible_host: 192.168.200.104
+            DC1_LEAFS:
+              hosts:
+                DC1-LEAF1:
+                  ansible_host: 192.168.200.105
+                DC1-LEAF2:
+                  ansible_host: 192.168.200.106
+                DC1-LEAF3:
+                  ansible_host: 192.168.200.107
+                DC1-LEAF4:
+                  ansible_host: 192.168.200.108
+
+          vars:
+            ansible_connection: httpapi
+            ansible_network_os: eos
+            ansible_user: admin
+            # should use vault for passwords - leaving un-encrypted for ease of sharing for labs
+            ansible_ssh_pass: arista123
+            ansible_become: yes
+            ansible_become_method: enable
+            ansible_httpapi_use_ssl: true
+            ansible_httpapi_validate_certs: false
+            validation_mode_loose: true
