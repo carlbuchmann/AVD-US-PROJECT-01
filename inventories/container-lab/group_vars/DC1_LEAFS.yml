@@ -15,13 +15,11 @@ leaf:
     DC1-LEAF1:
       bgp_as: 65101
       id: 1
-      rack: "rackA"
       mgmt_ip: 192.168.200.105/24
       uplink_switch_interfaces: [ Ethernet1, Ethernet1, Ethernet1, Ethernet1 ]
     DC1-LEAF2:
       bgp_as: 65102
       id: 2
-      rack: "rackB"
       mgmt_ip: 192.168.200.106/24
       uplink_switch_interfaces: [ Ethernet2, Ethernet2, Ethernet2, Ethernet2 ]
     DC1-LEAF3:
