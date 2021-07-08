@@ -19,7 +19,7 @@
 
 ```shell
   #Clone repositories
-  git clone https://github.com/carlbuchmann/AVD-US-PROJECT-1.git
+  git clone https://github.com/carlbuchmann/AVD-US-PROJECT-01.git
   git clone https://github.com/aristanetworks/ansible-avd.git
   cp ansible-avd/development/Makefile Makefile
   cd ansible-avd
