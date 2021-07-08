@@ -1,0 +1,5 @@
+---
+collections:
+  - name:  https://github.com/ClausHolbechArista/ansible-avd.git#ansible_collections/arista/avd
+    type: git
+    version: disagg-topology-support

@@ -20,12 +20,11 @@
 ```shell
   # Clone repositories
   git clone https://github.com/carlbuchmann/AVD-US-PROJECT-01.git
-  git clone https://github.com/aristanetworks/ansible-avd.git
+  cd AVD-US-PROJECT-01/
+  # Install Ansible AVD branch
+  ansible-galaxy collection install -r ansible-galaxy.yml
   # Copy Makefile to folder, this will be used to start AVD Team container
   cp ansible-avd/development/Makefile Makefile
-  # Change to PR #1000 branch
-  cd ansible-avd
-  gh pr checkout 1000
   # Start AVD Team container
   cd ..
   make run
