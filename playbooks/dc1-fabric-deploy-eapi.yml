@@ -2,7 +2,7 @@
 
   tasks:
 
-    - name: generate intented variables
+    - name: generate intended variables
       import_role:
          name: arista.avd.eos_designs
 
