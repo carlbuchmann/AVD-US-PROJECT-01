@@ -11,9 +11,9 @@ leaf:
     uplink_switches: ['DC1-SPINE1', 'DC1-SPINE2', 'DC1-SPINE3', 'DC1-SPINE4']
     bgp_defaults: ['no bgp default ipv4-unicast', 'distance bgp 20 200 200']
     platform: cEOS-LAB
-    spanning_tree_mode: mstp
-    spanning_tree_root_super: true
-    spanning_tree_priority: 4096
+    # spanning_tree_mode: mstp
+    # spanning_tree_root_super: true
+    # spanning_tree_priority: 4096
   nodes:
     DC1-LEAF1:
       bgp_as: 65101

@@ -59,9 +59,6 @@ leaf:
     - no bgp default ipv4-unicast
     - distance bgp 20 200 200
     platform: cEOS-LAB
-    spanning_tree_mode: mstp
-    spanning_tree_root_super: true
-    spanning_tree_priority: 4096
   nodes:
     DC1-LEAF1:
       bgp_as: 65101
@@ -361,7 +358,7 @@ groups:
   - DC1-LEAF2
   - DC1-LEAF3
   - DC1-LEAF4
-omit: __omit_place_holder__66e6196faf77961fe7c847d0b38b654fa8239788
+omit: __omit_place_holder__bbe9db7155a36ba38273f64f7268b7f6d9e93c1c
 ansible_version:
   string: 2.10.11
   full: 2.10.11
