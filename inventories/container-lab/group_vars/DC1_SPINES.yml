@@ -4,7 +4,7 @@ type: spine
 
 spine:
   defaults:
-    platform: 7050SX3
+    platform: cEOS-LAB
     bgp_as: 65001
     uplink_ipv4_pool: 10.255.255.0/24
     loopback_ipv4_pool: 192.168.254.0/24

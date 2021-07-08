@@ -43,7 +43,7 @@ bfd_multihop:
 type: spine
 spine:
   defaults:
-    platform: 7050SX3
+    platform: cEOS-LAB
     bgp_as: 65001
     uplink_ipv4_pool: 10.255.255.0/24
     loopback_ipv4_pool: 192.168.254.0/24
@@ -91,8 +91,8 @@ spine:
     DC1-SPINE4:
       id: 4
       mgmt_ip: 192.168.200.104/24
-inventory_file: /projects/AVD-US-PROJECT-1/inventories/container-lab/inventory.yml
-inventory_dir: /projects/AVD-US-PROJECT-1/inventories/container-lab
+inventory_file: /projects/AVD-US-PROJECT-01/inventories/container-lab/inventory.yml
+inventory_dir: /projects/AVD-US-PROJECT-01/inventories/container-lab
 ansible_host: 192.168.200.102
 inventory_hostname: DC1-SPINE2
 inventory_hostname_short: DC1-SPINE2
@@ -126,7 +126,7 @@ ansible_facts:
     overlay_routing_protocol: ebgp
     id: 2
     mgmt_ip: 192.168.200.102/24
-    platform: 7050SX3
+    platform: cEOS-LAB
     platform_settings:
       platforms:
       - default
@@ -206,7 +206,7 @@ switch:
   overlay_routing_protocol: ebgp
   id: 2
   mgmt_ip: 192.168.200.102/24
-  platform: 7050SX3
+  platform: cEOS-LAB
   platform_settings:
     platforms:
     - default
@@ -261,9 +261,9 @@ topology:
   - DC1-SPINE3
   - DC1-SPINE4
   vlans: []
-playbook_dir: /projects/AVD-US-PROJECT-1/playbooks
+playbook_dir: /projects/AVD-US-PROJECT-01/playbooks
 ansible_playbook_python: /usr/local/bin/python
-ansible_config_file: /projects/AVD-US-PROJECT-1/ansible.cfg
+ansible_config_file: /projects/AVD-US-PROJECT-01/ansible.cfg
 groups:
   all:
   - DC1-SPINE1
@@ -303,7 +303,7 @@ groups:
   - DC1-LEAF2
   - DC1-LEAF3
   - DC1-LEAF4
-omit: __omit_place_holder__c543b0fbe207ec835ccbe3dd70ee1e2cd35f87b5
+omit: __omit_place_holder__66e6196faf77961fe7c847d0b38b654fa8239788
 ansible_version:
   string: 2.10.11
   full: 2.10.11
@@ -314,9 +314,9 @@ ansible_check_mode: false
 ansible_diff_mode: true
 ansible_forks: 15
 ansible_inventory_sources:
-- /projects/AVD-US-PROJECT-1/inventories/container-lab/inventory.yml
+- /projects/AVD-US-PROJECT-01/inventories/container-lab/inventory.yml
 ansible_skip_tags: []
 ansible_run_tags:
-- build
 - debug
+- build
 ansible_verbosity: 0

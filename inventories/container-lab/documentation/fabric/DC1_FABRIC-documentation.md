@@ -23,10 +23,10 @@
 | DC1_FABRIC | leaf | DC1-LEAF2 | 192.168.200.106/24 | cEOS-LAB | Provisioned |
 | DC1_FABRIC | leaf | DC1-LEAF3 | 192.168.200.107/24 | cEOS-LAB | Provisioned |
 | DC1_FABRIC | leaf | DC1-LEAF4 | 192.168.200.108/24 | cEOS-LAB | Provisioned |
-| DC1_FABRIC | spine | DC1-SPINE1 | 192.168.200.101/24 | 7050SX3 | Provisioned |
-| DC1_FABRIC | spine | DC1-SPINE2 | 192.168.200.102/24 | 7050SX3 | Provisioned |
-| DC1_FABRIC | spine | DC1-SPINE3 | 192.168.200.103/24 | 7050SX3 | Provisioned |
-| DC1_FABRIC | spine | DC1-SPINE4 | 192.168.200.104/24 | 7050SX3 | Provisioned |
+| DC1_FABRIC | spine | DC1-SPINE1 | 192.168.200.101/24 | cEOS-LAB | Provisioned |
+| DC1_FABRIC | spine | DC1-SPINE2 | 192.168.200.102/24 | cEOS-LAB | Provisioned |
+| DC1_FABRIC | spine | DC1-SPINE3 | 192.168.200.103/24 | cEOS-LAB | Provisioned |
+| DC1_FABRIC | spine | DC1-SPINE4 | 192.168.200.104/24 | cEOS-LAB | Provisioned |
 
 > Provision status is based on Ansible inventory declaration and do not represent real status from CloudVision.
 
