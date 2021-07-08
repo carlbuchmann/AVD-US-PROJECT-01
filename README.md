@@ -26,5 +26,8 @@
   cd ..
   # start container
   make run
+  cd AVD-US-PROJECT-1
+  # run test playbook
+  make container-lab-build
 ```
 
