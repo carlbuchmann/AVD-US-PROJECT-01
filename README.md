@@ -6,7 +6,7 @@
 
 **special notes:**
 
-- currently based on aristanetwork/ansible-avd [PR #1000](https://github.com/aristanetworks/ansible-avd/pull/1000)
+- currently based on aristanetworks/ansible-avd [PR #1000](https://github.com/aristanetworks/ansible-avd/pull/1000)
   - documentation for PR located [here](https://ansible-avd-fork.readthedocs.io/en/disagg-topology-support/roles/eos_designs/doc/l3ls-evpn/fabric-topology.html)
 
 **Requirements:**
@@ -29,7 +29,7 @@
   # Start AVD Team container
   cd ..
   make run
-  # Run contain-lab-build test Ansible playbook
+  # Run container-lab-build test Ansible playbook
   cd AVD-US-PROJECT-1
   make container-lab-build
 ```
